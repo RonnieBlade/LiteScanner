@@ -254,6 +254,7 @@ namespace LiteScanner
         {
             ConsoleEffects.ConsolePrintColor("Testing Connection", ConsoleColor.Blue);
 
+            // Server will also create tables if they don't exist
             string textFromServer = Network.GetServerRequestResult("testConnection.php/");
 
             ConsoleEffects.ConsolePrintColor("Connected\n", ConsoleColor.DarkGreen);

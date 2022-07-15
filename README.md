@@ -1,12 +1,32 @@
 # LiteScanner
-An effective flexible proxy scanner
+An effective flexible proxy scanner for Windows (.NETFramework 4.6.1)
 
 ## About
-**LiteScanner** consists of Server app, Client app and MySQL database. Clients scan IPs according to the previously collected statistics or completely randomly. When client finds a working proxy, it sends it to the Server to check and to save in DataBase.
+**LiteScanner** consists of **C#** Client console app, **PHP** Server scripts and **MySQL** database. Clients scan IPs according to the previously collected statistics for better efficiency or completely randomly. When the client finds a working proxy, it sends it to the Server to check and save it in DataBase.
 
 <p align="center">
- <img src="https://github.com/LiteScanner/LiteScanner.gif" alt="Trie"/>
+ <img src="https://github.com/RonnieBlade/LiteScanner/blob/d00b0f7bac7b625e40ed437e5ad08eb0c8e4394c/LiteScanner.gif" alt="Trie"/>
 </p>
 
+## Features
+* Multitask network scanning
+* Scanning according to the previously collected statistics for better efficiency 
+* Authorization by client **Hardware and Software Fingerprint Hash**
+* Doublechecking proxies on the Server side before accepting
+* Flexible configuration with command-line arguments
+* Colorful console design:)
 
-![](https://github.com/LiteScanner/LiteScanner.gif)
+## Command-line arguments
+* manual - user chooses number of scanning tasks in the app manually
+* allports - scanning ports according to the statistics
+* port:{port} - scanning only one particular port (8080 by default)
+* random - scanning IPs randomly not taking statistics into account
+* timeout:{number of seconds} - scanning requests timeout in seconds
+
+### Example:
+```
+150 port:3128 timeout:10 random
+```
+Starts 150 tasks scanning random IPs connecting only to port 3128 with 10 seconds timeout
+
+Without any given arguments LiteScanner runs 100 tasks scanning IPs according to the statistics connecting only to port 8080 with 5 seconds timeout 
